@@ -18,5 +18,15 @@ Route::get('/', function () {
 });
 
 Route::get('/akta', function () {
-    return view('frontend.akta.index');
+    return view('frontend.home.index');
 });
+
+Route::get('/admin', function () {
+    return view('backend.base.index');
+});
+
+Route::get('/dashboard', function () {
+    return view('backend.base.index');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
