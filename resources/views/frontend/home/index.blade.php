@@ -112,7 +112,7 @@
 
             @forelse ($activities as $item)
             <div class="col-md-4 mb-3">
-                <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
+                <a href="{{ $item->url->show }}" class="recent-work card border-0 shadow-lg overflow-hidden">
                     <img class="recent-work-img card-img" src="{{ $item->url->image }}" height="500" width="300" style="object-fit: cover" alt="Card image">
                     <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="recent-work-content text-start mb-3 ml-3 text-dark">
@@ -133,7 +133,7 @@
         @if( count($activities) > 0 )
         <div class="row gy-5 g-lg-5 mb-4 justify-content-center">
             <div class="col-8 col-md-4">
-                <a class="filter-btn nav-link btn-outline-primary active shadow rounded-pill text-light px-4 light-300 text-center" style="font-weight: bold; background-color: #fff; color: #0e5617 !important;" href="#" data-filter=".project">Lihat Semua Kegiatan</a>
+                <a class=" nav-link btn-outline-primary active shadow rounded-pill text-light px-4 light-300 text-center" style="font-weight: bold; background-color: #fff; color: #0e5617 !important;" href="{{ route('kegiatan.index') }}" >Lihat Semua Kegiatan</a>
             </div>
         </div>
         @endif

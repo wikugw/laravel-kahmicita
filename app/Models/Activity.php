@@ -20,6 +20,7 @@ class Activity extends Model
     public function getUrlAttribute(){
         $url = new \stdClass;
         $url->image = asset('images/Kegiatan/' . $this->foto);
+        $url->show  = route('kegiatan.show', $this->id);
         return $url;
     }
 

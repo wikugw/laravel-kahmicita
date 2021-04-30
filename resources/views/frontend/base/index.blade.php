@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/templatemo.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}">
+
+    @yield('css')
 <!--
     
 TemplateMo 561 Purple Buzz
@@ -192,6 +194,8 @@ https://templatemo.com/tm-561-purple-buzz
     <script src="{{ asset('frontend/js/templatemo.js')}}"></script>
     <!-- Custom -->
     <script src="{{ asset('frontend/js/custom.js')}}"></script>
+
+    @yield('js')
 
 </body>
 

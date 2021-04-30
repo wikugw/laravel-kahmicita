@@ -14,15 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', '\App\Http\Controllers\Frontend\HomeController@index')->name('frontend.home');
+Route::resource('kegiatan', '\App\Http\Controllers\Frontend\KegiatanController');
 
 Route::get('/akta', function () {
     return view('frontend.akta.index');
 })->name('frontend.akta');
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('backend.activity.list.index');
-    })->name('dashboard');
+    Route::get('/', '\App\Http\Controllers\Backend\ActivityController@index')->name('dashboard');
     Route::resource('activity', '\App\Http\Controllers\Backend\ActivityController');
 });
 
