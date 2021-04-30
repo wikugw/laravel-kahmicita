@@ -108,54 +108,35 @@
         <div class="recent-work-header row pb-3 text-center">
             <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5 typo-space-line-center" style="color: #fff;">Info Kegiatan</h2>
         </div>
-        <div class="row gy-5 g-lg-5 mb-4">
+        <div class="row gy-5 g-lg-5 mb-4 justify-content-center">
 
-            <!-- Start Recent Work -->
+            @forelse ($activities as $item)
             <div class="col-md-4 mb-3">
                 <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                    <img class="recent-work-img card-img" src="{{ asset('frontend/img/kahmicita-open-donasi.jpeg') }}" alt="Card image">
+                    <img class="recent-work-img card-img" src="{{ $item->url->image }}" height="500" width="300" style="object-fit: cover" alt="Card image">
                     <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                            <h3 class="card-title light-300">Kahmi Cita</h3>
-                            <p class="card-text">Ullamco laboris nisi ut aliquip ex</p>
+                            <h3 class="card-title light-300">{{ $item->judul }}</h3>
+                            <p class="card-text">{{ $item->deskripsi }}</p>
                         </div>
                     </div>
                 </a>
-            </div><!-- End Recent Work -->
-
-            <!-- Start Recent Work -->
-            <div class="col-md-4 mb-3">
-                <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                    <img class="recent-work-img card-img" src="{{ asset('frontend/img/kahmicita-open-donasi.jpeg') }}" alt="Card image">
-                    <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                        <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                            <h3 class="card-title light-300">Kahmi Cita</h3>
-                            <p class="card-text">Psum officia anim id est laborum.</p>
-                        </div>
-                    </div>
-                </a>
-            </div><!-- End Recent Work -->
-
-            <!-- Start Recent Work -->
-            <div class="col-md-4 mb-3">
-                <a href="#" class="recent-work card border-0 shadow-lg overflow-hidden">
-                    <img class="recent-work-img card-img" src="{{ asset('frontend/img/kahmicita-open-donasi.jpeg') }}" alt="Card image">
-                    <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
-                        <div class="recent-work-content text-start mb-3 ml-3 text-dark">
-                            <h3 class="card-title light-300">Kahmi Cita</h3>
-                            <p class="card-text">Sum dolor sit consencutur</p>
-                        </div>
-                    </div>
-                </a>
-            </div><!-- End Recent Work -->
+            </div>    
+            @empty
+            <div class="col-md-4 mb-3 text-center">
+                Belum ada kegiatan ditambahkan
+            </div>
+            @endforelse
 
         </div>
 
+        @if( count($activities) > 0 )
         <div class="row gy-5 g-lg-5 mb-4 justify-content-center">
             <div class="col-8 col-md-4">
                 <a class="filter-btn nav-link btn-outline-primary active shadow rounded-pill text-light px-4 light-300 text-center" style="font-weight: bold; background-color: #fff; color: #0e5617 !important;" href="#" data-filter=".project">Lihat Semua Kegiatan</a>
             </div>
         </div>
+        @endif
     </div>
 </section>
 <!-- End Recent Work -->

@@ -58,7 +58,7 @@ https://templatemo.com/tm-561-purple-buzz
                                 </button>
                                 <div class="dropdown-menu" id="dropdown-nav" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href="#maksudTujuan">Maksud dan Tujuan</a>
-                                  <a class="dropdown-item" href="./akta.html">Akta Yayasan Kahmi</a>
+                                  <a class="dropdown-item" href="{{ route('frontend.akta') }}">Akta Yayasan Kahmi</a>
                                   <a class="dropdown-item" href="#">Struktur Organisasi</a>
                                 </div>
                               </div>
@@ -70,7 +70,7 @@ https://templatemo.com/tm-561-purple-buzz
                 </div>
             </div>
             <div class="navbar align-self-center d-flex justify-self-center">
-                <a class="nav-link" href="#"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
+                <a class="nav-link" href="{{ route('login') }}"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
             </div>
         </div>
     </nav>

@@ -13,20 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home.index');
-});
+Route::get('/', '\App\Http\Controllers\Frontend\HomeController@index')->name('frontend.home');
 
 Route::get('/akta', function () {
-    return view('frontend.home.index');
-});
+    return view('frontend.akta.index');
+})->name('frontend.akta');
 
-Route::get('/admin', function () {
-    return view('backend.base.index');
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('backend.activity.list.index');
+    })->name('dashboard');
+    Route::resource('activity', '\App\Http\Controllers\Backend\ActivityController');
 });
-
-Route::get('/dashboard', function () {
-    return view('backend.base.index');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
