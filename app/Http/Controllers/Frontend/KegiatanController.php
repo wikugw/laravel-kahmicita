@@ -16,7 +16,7 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $data['items']  = Activity::paginate(6); 
+        $data['items']  = Activity::orderBy('created_at', 'desc')->paginate(6); 
         return view('frontend.kegiatan.list.index', $data);
     }
 

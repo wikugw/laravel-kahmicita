@@ -106,7 +106,7 @@
 <section class="py-3" id="infoKegiatan" style="background-color: #C64756;">
     <div class="container">
         <div class="recent-work-header row pb-3 text-center">
-            <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5 typo-space-line-center" style="color: #fff;">Info Kegiatan</h2>
+            <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5 typo-space-line-center" style="color: #fff; font-size: 28px;">Info Kegiatan</h2>
         </div>
         <div class="row gy-5 g-lg-5 mb-4 justify-content-center">
 
@@ -145,7 +145,7 @@
 <section class="py-3 mb-5" id="artikelBerita" style="background-color: #184d47;">
     <div class="container">
         <div class="recent-work-header row pb-3 text-center">
-            <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5 typo-space-line-center" style="color: #fff;">Artikel & Berita</h2>
+            <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5 typo-space-line-center" style="color: #fff; font-size: 28px;">Artikel & Berita</h2>
         </div>
         <div class="row gy-5 g-lg-5 mb-4 justify-content-center">
 
@@ -187,6 +187,152 @@
         <div class="row">
             <iframe width="679" height="480" src="https://www.youtube.com/embed/iOaJZp8wPn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+    </div>
+</section>
+
+<section>
+    <div class="container my-5">
+        <div class="recent-work-header row pb-5 text-center">
+            <h2 class="col-md-6 m-auto h2 semi-bold-600 pt-2 typo-space-line-center-2" style="color: #184d47; font-size: 28px;">Galeri</h2>
+        </div>
+
+        <div class="row justify-content-center pb-4">
+            <div class="col-lg-8">
+                <div id="templatemo-slide-link-target" class="card mb-3">
+                    <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_01.jpg')}}" alt="Card image cap">
+                </div>
+                <div class="worksingle-slide-footer row">
+
+                    <!--Start Controls-->
+                    <div class="col-1 align-self-center">
+                        <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                            <i class='bx bxs-chevron-left bx-sm text-dark'></i>
+                        </a>
+                    </div>
+                    <!--End Controls-->
+
+                    <!--Start Carousel Wrapper-->
+                    <div id="multi-item-example" class="col-10 carousel slide" data-bs-ride="carousel">
+                        <!--Start Slides-->
+                        <div class="carousel-inner" role="listbox">
+
+                            <!--First slide-->
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_01.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_01.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_02.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_02.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_03.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_03.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_04.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_04.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_05.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_05.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.First slide-->
+
+                            <!--Second slide-->
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_06.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_06.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_07.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_07.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_08.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_08.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_09.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_09.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_10.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_10.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.Second slide-->
+
+                            <!--Second slide-->
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_11.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_11.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_12.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_12.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_12.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_12.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_13.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_13.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_14.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_14.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                    <div class="col">
+                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_15.jpg')}}">
+                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_15.jpg')}}" alt="Product Image">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.Second slide-->
+
+                        </div>
+                        <!--End Slides-->
+                    </div>
+                    <!--End Carousel Wrapper-->
+
+                    <!--Start Controls-->
+                    <div class="col-1 align-self-center text-end">
+                        <a href="#multi-item-example" role="button" data-bs-slide="next">
+                            <i class='bx bxs-chevron-right bx-sm text-dark'></i>
+                        </a>
+                    </div>
+                    <!--End Controls-->
+
+                </div>
+            </div>
+        </div><!-- End Slider -->
     </div>
 </section>
     

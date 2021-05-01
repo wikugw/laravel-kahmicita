@@ -16,7 +16,7 @@ class ArtikelController extends Controller
      */
     public function index()
     {
-        $data['items']  = Article::paginate(6); 
+        $data['items']  = Article::orderBy('created_at', 'desc')->paginate(6); 
         return view('frontend.artikel.list.index', $data);
     }
 
@@ -50,6 +50,7 @@ class ArtikelController extends Controller
     public function show($id)
     {
         $data['item']   = Article::findOrFail($id);
+        $data['others'] = Article::where('id', '!=' ,$id)->take(3)->get();
         return view('frontend.artikel.detail.index', $data);
     }
 
