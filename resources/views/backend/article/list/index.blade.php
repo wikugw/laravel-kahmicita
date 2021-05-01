@@ -1,7 +1,7 @@
 @extends('backend.base.index')
 
 @section('title')
-<title>List Kegiatan - KahmiCita Dashboard</title>
+<title>List Artikel - KahmiCita Dashboard</title>
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">List Kegiatan</h6>
+        <h6 class="m-0 font-weight-bold text-primary">List Artikel</h6>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -27,7 +27,7 @@
               <tr>
                 <th>ID</th>
                 <th>Judul</th>
-                <th>Deskripsi</th>
+                <th>Penulis</th>
                 <th>Gambar</th>
                 <th>Dibuat</th>
                 <th>Action</th>
@@ -38,16 +38,19 @@
               <tr>
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->judul }}</td>
-                <td>{{ $item->deskripsi }}</td>
+                <td>{{ $item->penulis }}</td>
                 <td>
                   <img src="{{ $item->url->image }}" class="img-thumbnail" width="200" height="200">
                 </td>
                 <td>{{ $item->date_format->updated_at }}</td>
-                <td>
-                  <a href="{{ route('activity.edit', $item->id) }}" class="btn btn-success btn-sm">
+                <td style="width: 110px">
+                  <a target="_blank" href="{{ route('artikel.show', $item->id) }}" class="btn btn-info btn-sm">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <a href="{{ route('article.edit', $item->id) }}" class="btn btn-success btn-sm">
                       <i class="fas fa-pencil-alt"></i>
                   </a>
-                  <form action="{{ route('activity.destroy', $item->id) }}" method="post" class="d-inline">
+                  <form action="{{ route('article.destroy', $item->id) }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                       <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin menghapus data?')">
@@ -68,10 +71,9 @@
 
 @section('js')
     <script>
-      $("#nav-item-kegiatan").addClass(" active");
-      $("#sidebar-kegiatan").removeClass("collapsed");
-      $("#sidebar-kegiatan-collapse").addClass(" show");
-      $("#collapse-item-activity-list").addClass(" active");
-
+      $("#nav-item-artikel").addClass(" active");
+      $("#sidebar-artikel").removeClass("collapsed");
+      $("#sidebar-artikel-collapse").addClass(" show");
+      $("#collapse-item-article-list").addClass(" active");
     </script>
 @endsection

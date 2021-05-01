@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 
-use App\Models\Activity;
+use App\Models\Article;
 
-class ActivityController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        $data['items']  = Activity::all(); 
-        return view('backend.activity.list.index', $data);
+        $data['items']  = Article::all(); 
+        return view('backend.article.list.index', $data);
     }
 
     /**
@@ -30,17 +30,18 @@ class ActivityController extends Controller
      */
     public function create()
     {
-        $data['item']   = new Activity();
+        $data['item']   = new Article();
         $data['page']   = 'create';
-        $data['url']    = route('activity.store');
-        return view('backend.activity.create.index', $data);
+        $data['url']    = route('article.store');
+        return view('backend.article.form.index', $data);
     }
 
     protected function validator(array $data, $edit = false)
     {
         $validation_list = [
             'judul'         => 'required|max:255',
-            'deskripsi'     => 'required',
+            'penulis'       => 'required|max:255',
+            'artikel'       => 'required',
             'foto'          => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ];
         if( $edit ){
@@ -61,11 +62,11 @@ class ActivityController extends Controller
         $this->validator($data)->validate();
         
         $originalImage = $request->file('foto');
-        $originalImage->move(public_path().'/images/Kegiatan', $img = 'img_'.Str::random(15). '.' . $originalImage->getClientOriginalExtension());
+        $originalImage->move(public_path().'/images/Artikel', $img = 'img_'.Str::random(15). '.' . $originalImage->getClientOriginalExtension());
         $data['foto'] = $img;
 
-        $data = Activity::create($data);
-        return redirect()->route('activity.index')->with('message', 'Berhasil Tambah data');
+        $data = Article::create($data);
+        return redirect()->route('article.index')->with('message', 'Berhasil Tambah data');
     }
 
     /**
@@ -76,7 +77,7 @@ class ActivityController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -87,10 +88,11 @@ class ActivityController extends Controller
      */
     public function edit($id)
     {
-        $data['item']   = Activity::findOrFail($id);
+        $data['item']   = Article::findOrFail($id);
         $data['page']   = 'edit';
-        $data['url']    = route('activity.update', $id);
-        return view('backend.activity.create.index', $data);
+        $data['url']    = route('article.update', $id);
+        
+        return view('backend.article.form.index', $data);
     }
 
     /**
@@ -106,20 +108,21 @@ class ActivityController extends Controller
         $this->validator($data, true)->validate();
         
         if( $request->file('foto') ){
-            $item   = Activity::findOrFail($id);
+            $item   = Article::findOrFail($id);
             
             $image_path = public_path().'/images/Artikel/'.$item->foto;
+            
             if (File::exists($image_path)) {
                 File::delete($image_path);
             }
 
             $originalImage = $request->file('foto');
-            $originalImage->move(public_path().'/images/Kegiatan', $img = 'img_'.Str::random(15). '.' . $originalImage->getClientOriginalExtension());
+            $originalImage->move(public_path().'/images/Artikel', $img = 'img_'.Str::random(15). '.' . $originalImage->getClientOriginalExtension());
             $data['foto'] = $img;
         }
 
-        $data = Activity::find($id)->update($data);;
-        return redirect()->route('activity.index')->with('message', 'Berhasil Update data');
+        $data = Article::find($id)->update($data);;
+        return redirect()->route('article.index')->with('message', 'Berhasil Update data');
     }
 
     /**
@@ -130,12 +133,12 @@ class ActivityController extends Controller
      */
     public function destroy($id)
     {
-        $item   = Activity::findOrFail($id);
+        $item   = Article::findOrFail($id);
         $image_path = public_path().'/images/Artikel/'.$item->foto;
         if (File::exists($image_path)) {
             File::delete($image_path);
         }
         $item->delete();
-        return redirect()->route('activity.index')->with('message', 'Berhasil Menghapus data');
+        return redirect()->route('article.index')->with('message', 'Berhasil Menghapus data');
     }
 }

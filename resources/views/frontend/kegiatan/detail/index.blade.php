@@ -8,27 +8,28 @@
     <!-- Start Service -->
     <section class="service-wrapper py-3">
         <div class="container-fluid pb-3">
-            <div class="row mt-4">
-                <div class="service-header col-2 col-lg-3 text-end light-300">
-                    <i class='bx bx-moon h3 mt-1'></i>
+            <div class="row pt-5 mb-3">
+                <div class="worksingle-content col-lg-8 m-auto text-left justify-content-center">
+                    <h2 class="worksingle-heading h3 pb-3 light-300 typo-space-line">{{ $item->judul }}</h2>
                 </div>
-                <div class="service-heading col-10 col-lg-9 text-start float-end light-300">
-                    <h2 class="h3 pb-4 typo-space-line">{{ $item->judul }}</h2>
-                </div>
-            </div>
+            </div><!-- End Blog Cover -->
 
-            <div class="container py-4">
-                <div class="row justify-content-center">
-                    <div class="col-4">
-                        <img src="{{ $item->url->image }}" class="img-thumbnail" style="object-fit: cover; width: 500px; heigt: 500px;" alt="Responsive image">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="templatemo-slide-link-target" class="card mb-3">
+                        <img class="img-fluid border rounded" src="{{ $item->url->image }}" alt="Card image cap">
                     </div>
+                    
+                </div>
+            </div><!-- End Slider -->
+
+            <div class="row">
+                <div class="col-md-8 m-auto text-left justify-content-center">
+                    <p class="pt-3 text-muted light-300">
+                        {{ $item->deskripsi }}
+                    </p>
                 </div>
             </div>
-
-            <p class="service-footer col-10 offset-2 col-lg-9 offset-lg-3 text-start pb-3 text-muted px-2">
-                {{ $item->deskripsi }}
-            </p>
-            
         </div>
 
     </section>

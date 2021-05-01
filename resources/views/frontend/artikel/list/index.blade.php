@@ -19,10 +19,10 @@
 
 @section('content')
     <!-- Start Recent Work -->
-<section class="py-3" id="infoKegiatan" style="background-color: #C64756;">
+<section class="py-3" id="infoKegiatan" style="background-color: #184d47;">
     <div class="container">
         <div class="recent-work-header row pb-3 text-center">
-            <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5 typo-space-line-center" style="color: #fff;">Info Kegiatan</h2>
+            <h2 class="col-md-6 m-auto h2 semi-bold-600 py-5 typo-space-line-center" style="color: #fff;">Artikel & Berita</h2>
         </div>
         <div class="row gy-5 g-lg-5 mb-4 justify-content-center">
 
@@ -33,14 +33,13 @@
                     <div class="recent-work-vertical card-img-overlay d-flex align-items-end">
                         <div class="recent-work-content text-start mb-3 ml-3 text-dark">
                             <h3 class="card-title light-300">{{ $item->judul }}</h3>
-                            <p class="card-text deskripsi-cut">{{ $item->deskripsi }}</p>
                         </div>
                     </div>
                 </a>
             </div>    
             @empty
             <div class="col-md-4 mb-3 text-center">
-                Belum ada kegiatan ditambahkan
+                Belum ada Artikel ditambahkan
             </div>
             @endforelse
 

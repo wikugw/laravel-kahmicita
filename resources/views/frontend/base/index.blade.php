@@ -31,7 +31,7 @@ https://templatemo.com/tm-561-purple-buzz
     <!-- Header -->
     <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-white shadow" style="background-color: #FAD586 !important;">
         <div class="container d-flex justify-content-between align-items-center" >
-            <a class="navbar-brand h1" href="index.html">
+            <a class="navbar-brand h1" href="{{ route('frontend.home')}}">
                 <i class=''>
                     <img src="{{ asset('frontend/img/WhatsApp Image 2021-04-23 at 5.16.06 PM.png') }}" height="40"  alt="">
                 </i>
@@ -45,7 +45,7 @@ https://templatemo.com/tm-561-purple-buzz
                 <div class="flex-fill mx-xl-5 mb-2">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center text-dark">
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" style="font-weight: bold; font-size: 18px;" href="index.html">Home</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" style="font-weight: bold; font-size: 18px;" href="{{ route('frontend.home')}}">Home</a>
                         </li>
                         <li class="nav-item">
                             <!-- Example single danger button -->
@@ -59,14 +59,17 @@ https://templatemo.com/tm-561-purple-buzz
                                   Profil
                                 </button>
                                 <div class="dropdown-menu" id="dropdown-nav" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="#maksudTujuan">Maksud dan Tujuan</a>
+                                  <a class="dropdown-item" href="{{ route('frontend.home')}}#maksudTujuan">Maksud dan Tujuan</a>
                                   <a class="dropdown-item" href="{{ route('frontend.akta') }}">Akta Yayasan Kahmi</a>
-                                  <a class="dropdown-item" href="#">Struktur Organisasi</a>
+                                  <a class="dropdown-item" href="">Struktur Organisasi</a>
                                 </div>
                               </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn-outline-primary rounded-pill px-3" style="font-weight: bold; font-size: 18px;" href="#infoKegiatan">Info kegiatan</a>
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" style="font-weight: bold; font-size: 18px;" href="{{route('frontend.home')}}#infoKegiatan">Info kegiatan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn-outline-primary rounded-pill px-3" style="font-weight: bold; font-size: 18px;" href="{{route('frontend.home')}}#artikelBerita">Artikel & Berita</a>
                         </li>
                     </ul>
                 </div>
@@ -187,6 +190,10 @@ https://templatemo.com/tm-561-purple-buzz
                 $(this).addClass("active");
                 $(this).addClass("shadow");
                 return false;
+            });
+
+            $(".deskripsi-cut").text(function (i, text) {
+                return text.length > 100 ? text.substr(0, text.lastIndexOf(' ', 97)) + '...' : text;
             });
         });
     </script>

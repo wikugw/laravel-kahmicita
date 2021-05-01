@@ -66,25 +66,22 @@
         <div id="sidebar-kegiatan-collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a id="collapse-item-list" class="collapse-item" href="{{ route('activity.index') }}">List</a>
-            <a id="collapse-item-create" class="collapse-item" href="{{ route('activity.create') }}">Tambah</a>
+            <a id="collapse-item-activity-list" class="collapse-item" href="{{ route('activity.index') }}">List</a>
+            <a id="collapse-item-activity-create" class="collapse-item" href="{{ route('activity.create') }}">Tambah</a>
           </div>
         </div>
       </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-wrench"></i>
-          <span>Utilities</span>
+      <li id="nav-item-artikel" class="nav-item">
+        <a  id="sidebar-artikel" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Artikel</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="sidebar-artikel-collapse" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <h6 class="collapse-header">Custom Components:</h6>
+            <a id="collapse-item-article-list" class="collapse-item" href="{{ route('article.index') }}">List</a>
+            <a id="collapse-item-article-create" class="collapse-item" href="{{ route('article.create') }}">Tambah</a>
           </div>
         </div>
       </li>
@@ -92,47 +89,6 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
@@ -168,8 +124,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                <img class="img-profile rounded-circle" src="{{ asset('backend/img/noavatar.webp') }}">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -257,7 +213,53 @@
   <!-- Page level custom scripts -->
   <script src="{{ asset('backend/js/demo/datatables-demo.js') }}"></script>
 
+  {{-- cokeditor --}}
+
+  <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+
+  <script>
+      ClassicEditor
+          .create(document.querySelector('.ckeditor'))
+          .then(editor => {
+              console.log(editor);
+          })
+          .catch(error => {
+              console.error(error);
+          });
+
+  </script>
+
   @yield('js')
+
+  <script>
+  
+    $("#sidebar-kegiatan").click(function(){
+      console.log('ja');
+      if($( this ).hasClass('collapsed')){
+        $( this ).removeClass("collapsed",50000, "easeInOutQuad");
+      } else {
+        $( this ).addClass(" collapsed",50000, "easeInOutQuad");
+      }
+      if($("#sidebar-kegiatan-collapse").hasClass('show')){
+        $("#sidebar-kegiatan-collapse").removeClass("show",50000, "easeInOutQuad");
+      } else {
+        $("#sidebar-kegiatan-collapse").addClass(" show",50000, "easeInOutQuad");
+      }
+    });
+
+    $("#sidebar-artikel").click(function(){
+      if($( this ).hasClass('collapsed')){
+        $( this ).removeClass("collapsed",50000, "easeInOutQuad");
+      } else {
+        $( this ).addClass(" collapsed",50000, "easeInOutQuad");
+      }
+      if($("#sidebar-artikel-collapse").hasClass('show')){
+        $("#sidebar-artikel-collapse").removeClass("show",50000, "easeInOutQuad");
+      } else {
+        $("#sidebar-artikel-collapse").addClass(" show",50000, "easeInOutQuad");
+      }
+    });
+  </script>
 
 </body>
 

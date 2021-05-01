@@ -1,7 +1,7 @@
 @extends('backend.base.index')
 
 @section('title')
-<title>Form Kegiatan - KahmiCita Dashboard</title>
+<title>Form Artikel - KahmiCita Dashboard</title>
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
   <div class="card shadow mb-4">
       <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">
-            {{ $page === 'edit' ? 'Edit Kegiatan' : 'Tambah Kegiatan' }}
+            {{ $page === 'edit' ? 'Edit Artikel' : 'Tambah Artikel' }}
           </h6>
       </div>
 
@@ -32,12 +32,33 @@
 
               </div>
               <div class="col-12">
-                  {{-- deskripsi --}}
+                {{-- penulis --}}
+                <div class="form-group">
+                  <label for="penulis">Penulis <span style="color: red">*</span></label>
+                  <input type="text" class="form-control @error('penulis') is-invalid @enderror"
+                      @if (old('penulis'))
+                        value="{{old('penulis')}}"
+                      @elseif ($item->penulis)
+                        value="{{ $item->penulis }}"
+                      @else
+                        value="{{ Auth::user()->name }}"
+                      @endif    
+                      id="penulis" 
+                      name="penulis"
+                    >
+                  @error('penulis')
+                  <div class="text-muted">{{ $message }}</div>
+                  @enderror
+                </div>
+
+              </div>
+              <div class="col-12">
+                  {{-- artikel --}}
                   <div class="form-group">
-                    <label for="deskripsi">Deskripsi <span style="color: red">*</span></label>
-                    <textarea class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" name="deskripsi"
-                        rows="5">{{ old('deskripsi') ? old('deskripsi') : $item->deskripsi }}</textarea>
-                    @error('deskripsi')
+                    <label for="artikel">Artikel <span style="color: red">*</span></label>
+                    <textarea class="ckeditor form-control @error('artikel') is-invalid @enderror" id="artikel" name="artikel"
+                        rows="7">{{ old('artikel') ? old('artikel') : $item->artikel }}</textarea>
+                    @error('artikel')
                     <div class="text-muted">{{ $message }}</div>
                     @enderror
                 </div>
@@ -75,10 +96,10 @@
 
 @section('js')
     <script>
-      $("#nav-item-kegiatan").addClass(" active");
-      $("#sidebar-kegiatan").removeClass("collapsed");
-      $("#sidebar-kegiatan-collapse").addClass(" show");
-      $("#collapse-item-activity-create").addClass(" active");
+      $("#nav-item-artikel").addClass(" active");
+      $("#sidebar-artikel").removeClass("collapsed");
+      $("#sidebar-artikel-collapse").addClass(" show");
+      $("#collapse-item-article-create").addClass(" active");
 
     </script>
 @endsection
