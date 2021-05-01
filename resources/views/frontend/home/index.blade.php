@@ -199,7 +199,7 @@
         <div class="row justify-content-center pb-4">
             <div class="col-lg-8">
                 <div id="templatemo-slide-link-target" class="card mb-3">
-                    <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_01.jpg')}}" alt="Card image cap">
+                    <img class="img-fluid border rounded" id="image-slide-link-target" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_01.jpg')}}" alt="Card image cap">
                 </div>
                 <div class="worksingle-slide-footer row">
 
@@ -294,11 +294,6 @@
                                         </a>
                                     </div>
                                     <div class="col">
-                                        <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_12.jpg')}}">
-                                            <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_12.jpg')}}" alt="Product Image">
-                                        </a>
-                                    </div>
-                                    <div class="col">
                                         <a class="templatemo-slide-link" href="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_13.jpg')}}">
                                             <img class="img-fluid border rounded" src="{{asset('frontend/img/Islamic Center/ISLAMIC CENTER_13.jpg')}}" alt="Product Image">
                                         </a>
@@ -336,4 +331,16 @@
     </div>
 </section>
     
+@endsection
+
+@section('js')
+    <script>
+        $( ".templatemo-slide-link" ).each(function(index) {
+            $(this).on("click", function(e){
+                e.preventDefault();
+                var image = $(this).attr("href");
+                $("#image-slide-link-target").attr("src", image);
+            });
+        });
+    </script>
 @endsection
